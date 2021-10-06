@@ -1,41 +1,62 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Praneeth Kumar Vobilishetty orders a car</title>
-    </head>
+
+<head>
+    <title>Praneeth Kumar Vobilishetty orders a car</title>
+</head>
+
 <body>
 
-<form>
-    <input type="checkbox" id="check_electric" name="check_electric"   
-      value="electric">
-    <label for="check_electric">electric</label></br>
-  
-    <input type="checkbox" id="check_ac" name="check_ac" 
-       value="check_ac">
-    <label for="check_ac">ac</label></br>
-  
-    <input type="checkbox" id="check_gps" name="check_gps"   
-       value="check_gps">
-    <label for="check_gps">gps</label></br>
+    <form>
+        <input type="checkbox" id="check_electric" name="check_electric" value="electric">
+        <label for="check_electric">electric</label></br>
+
+        <input type="checkbox" id="check_ac" name="check_ac" value="check_ac">
+        <label for="check_ac">ac</label></br>
+
+        <input type="checkbox" id="check_gps" name="check_gps" value="check_gps">
+        <label for="check_gps">gps</label></br>
+        <br>
+        <input type="button" onclick="orderCar()" value="Order a car">
+    </form>
     <br>
-    <input type="button" onclick="orderCar()" value="Order a car">
-  </form>
+    <form>
+        <label for="property">Enter a property </label>
+        <input type="text" id="property" name="property"> <br>
 
-<p id="result">This text will be replaced </p>
+        <label for="propertyvalue">Enter a value </label>
+        <input type="text" id="propertyvalue" name="propertyvalue"> <br>
+        <br>
+        <input type="button" onclick="updateCar()" value="Update the car">
+    </form>
 
-<script> 
+    <p id="result">This text will be replaced </p>
 
-function orderCar(){
-    my_car={};
-    result=document.getElementById("result");
-    my_car["electric"]=document.getElementById("check_electric").checked;
-    my_car["ac"]=document.getElementById("check_ac").checked;
-    my_car["gps"]=document.getElementById("check_gps").checked;
+    <script>
+        my_car = {};
+        function orderCar() {
 
-    result.innerHTML="electric: "+my_car.electric+", ac: "+my_car.ac+", gps: "+my_car.gps;
+            result = document.getElementById("result");
+            my_car["electric"] = document.getElementById("check_electric").checked;
+            my_car["ac"] = document.getElementById("check_ac").checked;
+            my_car["gps"] = document.getElementById("check_gps").checked;
 
-}
-</script>
+            result.innerHTML = "electric: " + my_car.electric + ", ac: " + my_car.ac + ", gps: " + my_car.gps;
+
+        }
+
+        function updateCar() {
+            property = document.getElementById("property").value;
+            propertyvalue = document.getElementById("propertyvalue").value;
+            result = document.getElementById("result");
+            my_car["electric"] = document.getElementById("check_electric").checked;
+            my_car["ac"] = document.getElementById("check_ac").checked;
+            my_car["gps"] = document.getElementById("check_gps").checked;
+            my_car[property] = propertyvalue;
+            result.innerHTML = "electric: " + my_car.electric + ", ac: " + my_car.ac + ", gps: " + my_car.gps + ", " + property + ": " + propertyvalue;
+        }
+    </script>
 
 </body>
-</html> 
+
+</html>
