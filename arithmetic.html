@@ -1,42 +1,92 @@
 <!DOCTYPE html>
 <html>
- <head>
-     <title>Praneeth Kumar Vobilishetty Computes</title>
- </head>
+
+<head>
+    <title>Praneeth Kumar Vobilishetty Computes</title>
+</head>
+
 <body>
 
-<h2>Getting input</h2>
+    <h2>Getting input</h2>
 
-<form>
-    <label for="base">Enter a base</label>
-    <input type ="number" id="base" name="base"> <br>
+    <form>
+        <label for="base">Enter a base</label>
+        <input type="number" id="base" name="base"> <br>
 
-    <label for="exponent">Enter an exponent </label>
-    <input type ="number" id="exponent" name="exponent" value=2> <br>
+        <label for="exponent">Enter an exponent </label>
+        <input type="number" id="exponent" name="exponent" value=2> <br>
+        <br>
+        <input type="button" onclick="powers()" value="powers">
+    </form>
 
-    <input type="button" onclick="powers()" value="powers">
-</form>
+    <p id="result">This result will be replaced </p>
+    <br>
 
+    <form>
+        <input type="radio" id="radiobutton" name="radiobutton" value="plus" onclick="processRadio(this.value)">
+        <label for="radiobutton">+</label></br>
 
-<p id="result">This result will be replaced </p>
+        <input type="radio" id="radiobutton" name="radiobutton" onclick="processRadio(this.value)" value="minus" >
+        <label for="radiobutton">-</label></br>
 
-<script> 
+        <input type="radio" id="radiobutton" name="radiobutton" value="times" onclick="processRadio(this.value)">
+        <label for="radiobutton">*</label></br>
 
-function powers (){
-    result=" ";
-    i=1;
-    base = document.getElementById("base").value
-    exponent = document.getElementById("exponent").value
-    while(i<=exponent)
-    {
-        result+=" "+Math.pow(base, i)
-        i++;
-    }
-   
-    out = document.getElementById("result")
-    out.innerHTML=result;
-}
-</script>
+        <input type="radio" id="radiobutton" name="radiobutton" value="divide" onclick="processRadio(this.value)">
+        <label for="radiobutton">/</label></br>
+        <br>
+    </form>
+
+    <br>
+
+    <p id="radioresult">The radio result will be replaced</p>
+
+    <script>
+
+        function powers() {
+            result = " ";
+            i = 1;
+            base = document.getElementById("base").value
+            exponent = document.getElementById("exponent").value
+            while (i <= exponent) {
+                result += " " + Math.pow(base, i)
+                i++;
+            }
+
+            out = document.getElementById("result")
+            out.innerHTML = result;
+        }
+
+        function processRadio(avalue) {
+            result = " ";
+            i = 1;
+            base = document.getElementById("base").value
+            exponent = document.getElementById("exponent").value
+           
+            radiobuttonvalue = avalue;
+            
+            radioresult=document.getElementById("radioresult");
+            if(radiobuttonvalue=="plus")
+            {
+                radioresult.innerHTML=Number(base)+Number(exponent);
+            }
+            else if(radiobuttonvalue=="minus")
+            {
+                radioresult.innerHTML=base-exponent;
+            }
+            else if(radiobuttonvalue=="times")
+            {
+                radioresult.innerHTML=base*exponent;
+            }
+            else if(radiobuttonvalue=="divide")
+            {
+                radioresult.innerHTML=base/exponent;
+            }
+
+           
+        }
+    </script>
 
 </body>
-</html> 
+
+</html>
