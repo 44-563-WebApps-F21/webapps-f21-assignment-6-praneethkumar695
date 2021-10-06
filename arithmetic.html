@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>Praneeth Kumar Vobilishetty Computes</title>
+ </head>
+<body>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="base">Enter a base</label>
+    <input type ="number" id="base" name="base"> <br>
+
+    <label for="exponent">Enter an exponent </label>
+    <input type ="number" id="exponent" name="exponent" value=2> <br>
+
+    <input type="button" onclick="powers()" value="powers">
+</form>
+
+
+<p id="result">This result will be replaced </p>
+
+<script> 
+
+function powers (){
+    result=" ";
+    i=1;
+    base = document.getElementById("base").value
+    exponent = document.getElementById("exponent").value
+    while(i<=exponent)
+    {
+        result+=" "+Math.pow(base, i)
+        i++;
+    }
+   
+    out = document.getElementById("result")
+    out.innerHTML=result;
+}
+</script>
+
+</body>
+</html> 
