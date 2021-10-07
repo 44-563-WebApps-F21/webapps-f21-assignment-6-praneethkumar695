@@ -18,8 +18,9 @@
         <br>
         <input type="button" onclick="powers()" value="powers">
     </form>
-
-    <p id="result">This result will be replaced </p>
+    <div>Powers of <span id="basev"> </span> are: <span id="result">This result will be replaced </span>
+            (exponent was <span id="ex"></span><span>)</span></div>
+    
     <br>
 
     <form>
@@ -39,11 +40,12 @@
 
     <br>
 
-    <p id="radioresult">The radio result will be replaced</p>
+    <div>Result is: <span type=text id="radioresult"></span></div>
 
     <script>
 
         function powers() {
+            
             result = " ";
             i = 1;
             base = document.getElementById("base").value
@@ -52,7 +54,8 @@
                 result += " " + Math.pow(base, i)
                 i++;
             }
-
+            document.getElementById("basev").innerHTML = base;
+            document.getElementById("ex").innerHTML = exponent;
             out = document.getElementById("result")
             out.innerHTML = result;
         }
@@ -82,8 +85,7 @@
             {
                 radioresult.innerHTML=base/exponent;
             }
-
-           
+          
         }
     </script>
 
