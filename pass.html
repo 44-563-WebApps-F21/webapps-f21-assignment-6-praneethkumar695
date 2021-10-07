@@ -24,11 +24,15 @@
                 correct++;
                 result.innerHTML = "Correct Count: " + correct
             }
+            else if (wrong > 2) {
+                alert("Account Locked");
+            }
             else {
                 alert("Access denied");
                 wrong++;
                 result.innerHTML = "Wrong Count: " + wrong
             }
+
         }
 
         function newImage() {
@@ -53,24 +57,36 @@
 </head>
 
 <body>
-    <h1>Pass phrase by Praneeth Kumar Vobilishetty</h1>
-    <h2>Getting input</h2>
+    <div class="container">
+        <h1 style="color: #0074D9;">Pass phrase by Praneeth Kumar Vobilishetty</h1>
+        <h2 style="color: #39CCCC;">Getting input</h2>
 
-    <form>
-        <label for="secret_phrase">Enter the secret phrase</label>
-        <input type="password" id="secret_phrase" name="secret_phrase" value="Let me in"> <br>
+        <form>
+            <div class="form-group">
+                <label for="secret_phrase" style="color: #92A8D1;">Enter the secret phrase</label>
+                <input type="password" class="form-control" id="secret_phrase" name="secret_phrase" value="Let me in">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="enter_phrase" style="color: #92A8D1;">Enter a phrase</label>
+                <input type="text" class="form-control" id="enter_phrase" name="enter_phrase" autofocus> <br>
+            </div>
+            
+            <input type="button" class="btn btn-primary" onclick="processPhrase()" value="Check the phrase">
+        </form>
 
-        <label for="enter_phrase">Enter a phrase</label>
-        <input type="text" id="enter_phrase" name="enter_phrase" autofocus> <br>
-
-        <input type="button" onclick="processPhrase()" value="Check the phrase">
-    </form>
-
-
-    <p id="result">This text will be replaced </p>
-    <div class="container-fluid">
-        <img src="images/Lion.png" id="rotateImage" height="200" width="200" onclick="newImage()">
+        <br>
+        <p class="lead" id="result" style="color: #92A8D1;">This text will be replaced </p>
+        <br>
+        <div class="container">
+            <div class="text-center">
+                <p class="lead" style="color: #88B04B;">Click on below image to change</p>
+                <img src="images/Lion.png" class="rounded" id="rotateImage" height="200" width="200"
+                    onclick="newImage()">
+            </div>
+        </div>
     </div>
+
 
 </body>
 
